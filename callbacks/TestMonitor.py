@@ -40,8 +40,8 @@ class STAccuracyMonitor(Callback):
     def on_epoch_end(self, epoch, logs=None):
         preds = self.model.predict(self.test_generator, steps=len(self.test_generator), verbose=self.verbose)
 
-        pred_class_indices = np.argmax(preds[0], axis=1)
-        test_class_indices = np.argmax(self.test_generator.labels[0], axis=1)
+        pred_class_indices = np.argmax(preds, axis=1)
+        test_class_indices = np.argmax(self.test_generator.labels, axis=1)
 
         K = cohen_kappa_score(test_class_indices, pred_class_indices, labels=None, weights=None, sample_weight=None)
         OA = accuracy_score(test_class_indices, pred_class_indices, normalize=True, sample_weight=None)
