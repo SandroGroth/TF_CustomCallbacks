@@ -31,7 +31,7 @@ class STAccuracyMonitor(Callback):
 
 
     def on_train_begin(self, logs=None):
-        df = pd.Dataframe({'Epoch': [],
+        df = pd.DataFrame({'Epoch': [],
                             'K': [],
                             'OA': []})
         self.acc_df = df
