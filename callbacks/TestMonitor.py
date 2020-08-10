@@ -10,7 +10,6 @@ class STAccuracyMonitor(Callback):
 
     def __init__(self,
                 test_generator=None,
-                class_mapping=None,
                 out_file=None,
                 precision=4,
                 verbose=0):
@@ -26,12 +25,6 @@ class STAccuracyMonitor(Callback):
             return
         else:
             self.test_generator = test_generator
-
-        if class_mapping is None:
-            logging.error("\nSTAccuracyMonitor: No class mapping provided. Skipping...", RuntimeError)
-            return
-        else:
-            self.class_mapping = class_mapping
 
         if os.path.exists(self.out_file):
             logging.warning("\nSTAccuracyMonitor: Output file already exists. File will be overwritten.", RuntimeWarning)
