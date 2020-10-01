@@ -52,6 +52,14 @@ class TrainingPlot(Callback):
         self.ax3.set_xlim(0,1)
         self.ax3.set_ylim(0,1)
 
+        # titles
+        self.fig.suptitle("Training Performance", size=16)
+        self.ax1.set_title("Learning rate")
+        self.ax2.set_title("Accuracies")
+        self.ax3.set_title("Losses")
+
+        self.fig.tight_layout()
+
         plt.pause(0.5)
 
 
